@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
     primary_key: :id,
     inverse_of: :owner
   )
-  
+
   has_many(
     :posts,
     class_name: "Post",

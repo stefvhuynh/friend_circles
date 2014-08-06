@@ -7,9 +7,14 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create [
-  { email: "duffman@duff.com", password: "123456" },
-  { email: "homer@nuclear.com", password: "123456" },
-  { email: "moe@tavern.com", password: "123456" }
+  { email: "duffman@duff.com",      password: "123456" },
+  { email: "homer@nuclear.com",     password: "123456" },
+  { email: "lenny@nuclear.com",     password: "123456" },
+  { email: "carl@nuclear.com",      password: "123456" },
+  { email: "moe@tavern.com",        password: "123456" },
+  { email: "bart@springfield.com",  password: "123456" },
+  { email: "lisa@springfield.com",  password: "123456" },
+  { email: "marge@springfield.com", password: "123456" }
 ]
 
 # Circle.create [

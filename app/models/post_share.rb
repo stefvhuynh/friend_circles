@@ -6,7 +6,7 @@ class PostShare < ActiveRecord::Base
     primary_key: :id,
     inverse_of: :shares
   )
-  
+
   belongs_to(
     :circle,
     class_name: "Circle",
@@ -14,6 +14,6 @@ class PostShare < ActiveRecord::Base
     primary_key: :id,
     inverse_of: :shares
   )
-  
-  validates :post_id, :circle_id, presence: true, numericality: true
+
+  validates :post, :circle_id, presence: true
 end

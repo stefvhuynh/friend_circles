@@ -1,8 +1,15 @@
 class UsersController < ApplicationController
 
-  def show
-    @user = User.find(params[:format])
-    render :show
+  def feed
+    belong_to_circles = current_user.belong_to_circles
+
+    @friend_posts = belong_to_circles.each_with_object([]) do |circle, posts|
+      circle.shared_posts.each { |post| posts << post }
+    end
+
+    @friend_posts.sort! { |post1, post2| post2.updated_at <=> post1.updated_at }
+
+    render :feed
   end
 
   def create
@@ -10,7 +17,7 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in!(@user)
-      redirect_to user_url(@user)
+      redirect_to feed_user_url
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new
@@ -26,7 +33,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update(user_params)
-      redirect_to user_url(@user)
+      redirect_to feed_user_url
     else
       flash.now[:errors] = @user.errors.full_messages
       render :edit

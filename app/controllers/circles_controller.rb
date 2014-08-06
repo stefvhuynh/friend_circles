@@ -26,9 +26,19 @@ class CirclesController < ApplicationController
   end
 
   def update
+    @circle = Circle.find(params[:id])
+
+    if @circle.update(circle_params)
+      redirect_to user_circle_url(@circle)
+    else
+      flash.now[:errors] = @circle.errors.full_messages
+      render :edit
+    end
   end
 
   def edit
+    @circle = Circle.find(params[:id])
+    render :edit
   end
 
   def destroy

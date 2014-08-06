@@ -23,5 +23,12 @@
     <input type="text" name="links[3][url]" value="">
   </label><br>
 
+<% current_user.owned_circles.each do |circle| %>
+  <label><%= circle.name %>
+    <input type="checkbox" name="post[shared_circle_ids][]"
+      value="<%= circle.id %>">
+  </label><br>
+<% end %>
+
   <button>Publish</button>
 </form>

@@ -1,0 +1,17 @@
+  <%= authenticity_token %>
+
+  <label>Name:
+    <input type="text" name="circle[name]" value="<%= @circle.name %>">
+  </label><br>
+
+<% User.all.each do |user| %>
+  <% next if user == current_user %>
+  <label><%= user.email %>
+    <input type="checkbox" name="circle[member_ids][]" value="<%= user.id %>"
+      <%= "checked" if @circle.members.include?(user) %>>
+  </label><br>
+<% end %>
+
+  <input type="hidden" name="circle[member_ids][]"
+    value="<%= current_user.id %>">
+  <input type="hidden" name="circle[member_ids][]" value = "">

@@ -1,0 +1,19 @@
+<a href="<%= new_post_url %>">New post</a>
+
+<h2>Feed</h2>
+<hr>
+
+<% @friend_posts.each do |post| %>
+<div>
+  <h3><%= post.author.email %>:</h3>
+  <h5>@<%= post.created_at %></h5>
+  <h4><a href="<%= post_url(post) %>"><%= post.title %></a></h4>
+  <div><%= post.body %></div>
+</div>
+<ul>
+  <% post.links.each do |link| %>
+  <li><a href="#"><%= link.url %></a></li>
+  <% end %>
+</ul>
+<hr>
+<% end %>

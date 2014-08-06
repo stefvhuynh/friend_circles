@@ -12,12 +12,13 @@
   <h1>Friend Circles</h1>
 
 <% if signed_in? %>
-  <h2><a href="<%= user_url(current_user) %>"><%= current_user.email %></a></h2>
+  <h3><a href="<%= feed_user_url %>"><%= current_user.email %></a></h3>
+  <h4><a href="<%= user_circles_url %>">Your circles</a></h4>
   <form action="<%= session_url %>" method="post">
     <%= authenticity_token %>
     <input type="hidden" name="_method" value="delete">
     <button>Sign out</button>
-  </form>
+  </form><br>
 <% end %>
 
 <% if flash[:errors] %>
