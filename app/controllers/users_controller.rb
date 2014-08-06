@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :require_signed_in!, except: [:create, :new]
 
   def feed
     belong_to_circles = current_user.belong_to_circles
@@ -8,7 +9,6 @@ class UsersController < ApplicationController
     end
 
     @friend_posts.sort! { |post1, post2| post2.updated_at <=> post1.updated_at }
-
     render :feed
   end
 

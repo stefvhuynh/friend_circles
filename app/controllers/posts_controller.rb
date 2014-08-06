@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_filter :require_signed_in!
 
   def create
     @post = current_user.posts.build(post_params)

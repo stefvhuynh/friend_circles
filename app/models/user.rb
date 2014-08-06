@@ -29,6 +29,14 @@ class User < ActiveRecord::Base
     inverse_of: :author
   )
 
+  has_many(
+    :comments,
+    class_name: "Comment",
+    foreign_key: :commenter_id,
+    primary_key: :id,
+    inverse_of: :commenter
+  )
+
   validates :email, :password_digest, :session_token, presence: true
   validates :email, :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }

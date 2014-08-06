@@ -1,0 +1,8 @@
+<% @post.comments.each do |comment| %>
+<div>
+  <h4><%= comment.commenter.email %>:</h4>
+  <h5>@<%= comment.updated_at %></h5>
+  <p><%= comment.body %></p>
+</div>
+<hr>
+<% end %>

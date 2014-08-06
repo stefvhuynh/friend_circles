@@ -1,4 +1,5 @@
 class CirclesController < ApplicationController
+  before_filter :require_signed_in!
 
   def index
     @circles = current_user.owned_circles

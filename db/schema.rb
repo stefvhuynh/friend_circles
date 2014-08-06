@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140806031841) do
+ActiveRecord::Schema.define(version: 20140806194643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,17 @@ ActiveRecord::Schema.define(version: 20140806031841) do
 
   add_index "circles", ["name"], name: "index_circles_on_name", using: :btree
   add_index "circles", ["owner_id"], name: "index_circles_on_owner_id", using: :btree
+
+  create_table "comments", force: true do |t|
+    t.text     "body",         null: false
+    t.integer  "commenter_id", null: false
+    t.integer  "post_id",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["commenter_id"], name: "index_comments_on_commenter_id", using: :btree
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
 
   create_table "links", force: true do |t|
     t.integer  "post_id",    null: false

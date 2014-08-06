@@ -1,0 +1,9 @@
+<form action="<%= post_comments_url(@post) %>" method="post">
+  <%= authenticity_token %>
+
+  <label>Comment:<br>
+    <textarea name="comment[body]"></textarea>
+  </label><br>
+
+  <button>Publish</button>
+</form>

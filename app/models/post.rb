@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
     primary_key: :id,
     inverse_of: :posts
   )
-  
+
   has_many(
     :links,
     class_name: "Link",
@@ -14,7 +14,7 @@ class Post < ActiveRecord::Base
     primary_key: :id,
     inverse_of: :post
   )
-  
+
   has_many(
     :shares,
     class_name: "PostShare",
@@ -22,13 +22,21 @@ class Post < ActiveRecord::Base
     primary_key: :id,
     inverse_of: :post
   )
-  
+
   has_many(
     :shared_circles,
     through: :shares,
     source: :circle
   )
-  
+
+  has_many(
+    :comments,
+    class_name: "Comment",
+    foreign_key: :post_id,
+    primary_key: :id,
+    inverse_of: :post
+  )
+
   validates :title, :body, :author_id, presence: true
   validates :author_id, numericality: true
 end
