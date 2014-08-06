@@ -1,6 +1,6 @@
 == README
 
-This is light Ruby on Rails clone of a Google+. Users sign up and create circles from a 
+This is a light Ruby on Rails clone of a Google+. Users sign up and create circles from a 
 list of all existing users. Users can create posts with associated links and post to
 specific circles. The members of that user's circles will be able to see his/her posts.
 
