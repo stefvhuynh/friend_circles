@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = current_user
 
     if @user.update(user_params)
       redirect_to feed_user_url
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
     render :edit
   end
 

@@ -4,6 +4,7 @@ class Circle < ActiveRecord::Base
     class_name: "CircleMembership",
     foreign_key: :circle_id,
     primary_key: :id,
+    dependent: :destroy,
     inverse_of: :circle
   )
 
@@ -20,22 +21,22 @@ class Circle < ActiveRecord::Base
     primary_key: :id,
     inverse_of: :owned_circles
   )
-  
+
   has_many(
     :shares,
     class_name: "PostShare",
     foreign_key: :circle_id,
     primary_key: :id,
+    dependent: :destroy,
     inverse_of: :circle
   )
-  
+
   has_many(
     :shared_posts,
     through: :shares,
-    source: :post 
+    source: :post
   )
 
   validates :name, :owner_id, presence: true
   validates :name, uniqueness: { scope: :owner_id }
-  # validates :owner_id, numericality: true
 end

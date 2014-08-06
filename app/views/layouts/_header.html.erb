@@ -1,0 +1,12 @@
+<% if signed_in? %>
+  <div>
+    <h3><a href="<%= feed_user_url %>"><%= current_user.email %></a></h3>
+    <h5><a href="<%= edit_user_url %>">Edit</a></h5>
+    <h4><a href="<%= user_circles_url %>">Your circles</a></h4>
+    <form action="<%= session_url %>" method="post">
+      <%= authenticity_token %>
+      <input type="hidden" name="_method" value="delete">
+      <button>Sign out</button>
+    </form><br>
+  </div>
+<% end %>

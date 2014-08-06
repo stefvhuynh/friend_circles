@@ -5,3 +5,9 @@
   <%= render "fields" %>
   <button>Update</button>
 </form>
+
+<form action="<%= circle_url(@circle) %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <%= authenticity_token %>
+  <button>Delete circle</button>
+</form>

@@ -43,6 +43,9 @@ class CirclesController < ApplicationController
   end
 
   def destroy
+    @circle = Circle.find(params[:id])
+    @circle.destroy
+    redirect_to user_circles_url
   end
 
   private
