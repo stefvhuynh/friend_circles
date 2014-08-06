@@ -15,5 +15,5 @@ class CircleMembership < ActiveRecord::Base
     inverse_of: :memberships
   )
 
-  validates :circle_id, :member_id, presence: true
+  validates :circle, :member_id, presence: true
 end

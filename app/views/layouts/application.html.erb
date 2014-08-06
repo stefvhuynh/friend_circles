@@ -12,7 +12,7 @@
   <h1>Friend Circles</h1>
 
 <% if signed_in? %>
-  <h2><%= current_user.email %></h2>
+  <h2><a href="<%= user_url(current_user) %>"><%= current_user.email %></a></h2>
   <form action="<%= session_url %>" method="post">
     <%= authenticity_token %>
     <input type="hidden" name="_method" value="delete">

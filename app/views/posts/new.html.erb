@@ -1,0 +1,27 @@
+<h2>New Post</h2>
+
+<form action="<%= posts_url %>" method="post">
+  <%= authenticity_token %>
+  
+  <label>Title:<br>
+    <input type="text" name="post[title]" value="<%= @post.title %>">
+  </label><br>
+  
+  <label>Body:<br>
+    <textarea name="post[body]"><%= @post.body %></textarea>
+  </label><br>
+  
+  <label>Link 1:
+    <input type="text" name="link[1][url]" value="">
+  </label><br>
+  
+  <label>Link 2:
+    <input type="text" name="link[2][url]" value="">
+  </label><br>
+  
+  <label>Link 3:
+    <input type="text" name="link[3][url]" value="">
+  </label><br>
+  
+  <button>Publish</button>
+</form>

@@ -1,2 +1,8 @@
 <a href="<%= user_circles_url %>">&laquo; Back</a>
 <h2><%= @circle.name %></h2>
+
+<ul>
+<% @circle.members.each do |member| %>
+  <li><a href="#"><%= member.email %></a></li>
+<% end %>
+</ul>

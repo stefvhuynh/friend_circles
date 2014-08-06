@@ -37,5 +37,5 @@ class Circle < ActiveRecord::Base
 
   validates :name, :owner_id, presence: true
   validates :name, uniqueness: { scope: :owner_id }
-  validates :owner_id, numericality: true
+  # validates :owner_id, numericality: true
 end

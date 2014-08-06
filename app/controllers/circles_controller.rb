@@ -13,7 +13,7 @@ class CirclesController < ApplicationController
     @circle = current_user.owned_circles.build(circle_params)
 
     if @circle.save
-      redirect_to circle_url(@circle)
+      redirect_to user_circle_url(@circle)
     else
       flash.now[:errors] = @circle.errors.full_messages
       render :new
