@@ -20,6 +20,14 @@ class User < ActiveRecord::Base
     primary_key: :id,
     inverse_of: :owner
   )
+  
+  has_many(
+    :posts,
+    class_name: "Post",
+    foreign_key: :author_id,
+    primary_key: :id,
+    inverse_of: :author
+  )
 
   validates :email, :password_digest, :session_token, presence: true
   validates :email, :session_token, uniqueness: true
