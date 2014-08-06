@@ -1,0 +1,9 @@
+<h2>Your circles</h2>
+
+<ul>
+  <% @circles.each do |circle| %>
+    <li><a href="<%= user_circle_url(circle) %>"><%= circle.name %></a></li>
+  <% end %>
+</ul>
+
+<a href="<%= new_circle_url %>">New circle</a>

@@ -1,0 +1,7 @@
+<h2>Edit user</h2>
+
+<form action="<%= user_url %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <%= render "fields" %>
+  <button>Update</button>
+</form>
